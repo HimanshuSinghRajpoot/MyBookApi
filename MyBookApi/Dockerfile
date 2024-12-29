@@ -13,9 +13,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["MyBookApi.csproj", "MyBookApi/"]
-RUN dotnet restore "./MyBookApi/MyBookApi.csproj"
+RUN dotnet restore "MyBookApi.csproj"
 COPY . .
-WORKDIR "/src/MyBookApi"
+WORKDIR "/src"
 RUN dotnet build "MyBookApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
