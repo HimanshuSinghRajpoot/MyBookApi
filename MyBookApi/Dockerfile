@@ -10,7 +10,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copy only the csproj file first to restore dependencies
-COPY ["MyBookApi/MyBookApi.csproj", "MyBookApi/"]
+COPY ["./MyBookApi.csproj", "MyBookApi/"]
 RUN dotnet restore "MyBookApi/MyBookApi.csproj"
 
 # Copy the remaining source code files
