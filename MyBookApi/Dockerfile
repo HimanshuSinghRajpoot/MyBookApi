@@ -12,7 +12,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MyBookApi.csproj", "MyBookApi/"]
+COPY "MyBookApi.csproj"
 RUN dotnet restore "./MyBookApi.csproj"
 COPY . .
 WORKDIR "/src"
